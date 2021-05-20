@@ -4,7 +4,7 @@
 <%
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost/hometraining?serverTimezone=UTC&useSSL=false");
-        PreparedStatement statement = con.prepareStatement("select rank() over(partition by ? order by score desc),id,score from ranking");
+        PreparedStatement statement = con.prepareStatement("select rank() over(partition by team order by score desc),id,score from ranking where team=?");
 
         statement.setString(1, request.getParameter("userTeam"));
 
