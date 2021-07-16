@@ -19,8 +19,10 @@
                         statement1.setString(4, request.getParameter("userTeam"));
                         statement1.setString(5, request.getParameter("userAge"));
                         statement1.setString(6, request.getParameter("userGender"));
+                        statement1.setString(7, request.getParameter("userHeight"));
+                        statement1.setString(7, request.getParameter("userWeight"));
                         statement1.executeUpdate();
-                        PreparedStatement statement2 = con.prepareStatement("insert into ranking(id,team) values(?,?)");
+                        PreparedStatement statement2 = con.prepareStatement("insert into ranking(id,team,score) values(?,?,0)");
                         statement2.setString(1, request.getParameter("userId"));
                         statement2.setString(2, request.getParameter("userTeam"));
                         statement2.executeUpdate();
