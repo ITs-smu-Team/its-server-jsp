@@ -12,15 +12,17 @@
         if(rs.next()){
                 response.getWriter().write("error");
         } else{
-                PreparedStatement statement1 = con.prepareStatement("insert into members(name,id,pwd,team,age,gender) values(?,?,?,?,?,?)");
+                PreparedStatement statement1 = con.prepareStatement("insert into members(name,id,pwd,team,age,gender,height,weight,lastexc) values(?,?,?,?,?,?,?,?,0)");
                         statement1.setString(1, request.getParameter("userName"));
                         statement1.setString(2, request.getParameter("userId"));
                         statement1.setString(3, request.getParameter("userPwd"));
                         statement1.setString(4, request.getParameter("userTeam"));
                         statement1.setString(5, request.getParameter("userAge"));
                         statement1.setString(6, request.getParameter("userGender"));
+                        statement1.setString(7, request.getParameter("userHeight"));
+                        statement1.setString(8, request.getParameter("userWeight"));
                         statement1.executeUpdate();
-                        PreparedStatement statement2 = con.prepareStatement("insert into ranking(id,team) values(?,?)");
+                        PreparedStatement statement2 = con.prepareStatement("insert into ranking(id,team,score) values(?,?,0)");
                         statement2.setString(1, request.getParameter("userId"));
                         statement2.setString(2, request.getParameter("userTeam"));
                         statement2.executeUpdate();
