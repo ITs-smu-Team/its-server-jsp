@@ -9,7 +9,7 @@
     ResultSet rs = statement.executeQuery();
 
     if(rs.next()){
-                response.getWriter().write(rs.getString(2)+"~"+rs.getString(3)+"~"+rs.getString(4));
+                response.getWriter().write(rs.getString(5)+"$"+rs.getString(6)+"$"+rs.getString(3)+"$");
                   } else{
                         response.getWriter().write("error");
                         }
