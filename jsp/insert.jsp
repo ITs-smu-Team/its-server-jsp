@@ -10,20 +10,18 @@
         String ename= request.getParameter("exc_name");
         String enname= request.getParameter("engexc_name");
         if(ename!=null){
-        String exc_name[]=ename.split(",");
-        String exc_engname[] = enname.split(",");
-        for(int i =0;exc_name[i] != null;i++)
-        {
-                PreparedStatement statement = con.prepareStatement("insert into routine(id,routine_name,name,engname) values (?,?,?,?)");
+                String exc_name[]=ename.split(",");
+                String exc_engname[] = enname.split(",");
+                for(int i =0;exc_name.length >i;i++)
+                {
+                PreparedStatement statement = con.prepareStatement("insert into routine(id,name,exc_name,exc_engname) values (?,?,?,?)");
                 statement.setString(1, id);
                 statement.setString(2, rtname);
                 statement.setString(3, exc_name[i]);
                 statement.setString(4, exc_engname[i]);
                 int rs = statement.executeUpdate();
-                if(rs==0){
-                       response.getWriter().write("error");
-                        }
                 }
         }
         con.close();
+
 %>
