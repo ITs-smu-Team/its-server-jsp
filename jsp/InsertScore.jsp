@@ -4,8 +4,7 @@
 <%
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost/hometraining?serverTimezone=UTC&useSSL=false");
-        PreparedStatement statement = con.prepareStatement("update ranking set score=? where id=?");
-
+        PreparedStatement statement = con.prepareStatement("update ranking set point=? where id=?");
         statement.setString(1, request.getParameter("userScore"));
         statement.setString(2, request.getParameter("userId"));
         int ret=statement.executeUpdate();
@@ -13,6 +12,6 @@
                 response.getWriter().write("error");
         }else{
                 response.getWriter().write("success");}
-
         con.close();
+
 %>
