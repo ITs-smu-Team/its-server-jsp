@@ -4,7 +4,7 @@
 <%
     Class.forName("com.mysql.jdbc.Driver");
     Connection con = DriverManager.getConnection("jdbc:mysql://localhost/hometraining?serverTimezone=UTC&useSSL=false");
-    PreparedStatement statement = con.prepareStatement("select exc_name, exc_engname from routine");
+    PreparedStatement statement = con.prepareStatement("select name, engname from guide");
 
     ResultSet rs = statement.executeQuery();
     while(rs.next()){
