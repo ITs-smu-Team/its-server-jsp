@@ -11,7 +11,7 @@
 
     ResultSet rs = statement.executeQuery();
     while(rs.next()){
-        response.getWriter().write(rs.getString(1)+"@"+rs.getString(2)+"@");
+        response.getWriter().write(rs.getString(1)+","+rs.getString(2)+"@");
         }
     con.close();
 %>
